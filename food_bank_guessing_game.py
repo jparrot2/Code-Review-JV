@@ -84,5 +84,10 @@ while word_guess_turns <= 3:
         incorrect_letter_bank.append(letter_guess)
         print(f"Incorrect word bank: {incorrect_letter_bank}")
         word_guess_turns += 1
+        break
 
-
+# scoring for the user
+# combing the incorrect and correct lists for player scoring 
+both_banks = correct_bank + incorrect_letter_bank
+scoring = both_banks.count(letter_guess)
+print(f"Here is the number of times you guessed: {scoring}")

@@ -43,3 +43,31 @@ def mask_function(random_category_word, masking_character = "#"):
 masked_word = mask_function(random_category_word)
 print(f"AHHH! Your word is from the {random_choosing} category, and here is your word: {masked_word}") 
 letter_guess = input("OOOOKAY, what is your letter guess? Input here:  ")
+
+
+# empty lists for correct and incorrect guess and word guess turns 
+incorrect_letter_bank = []
+correct_bank = []
+word_guess_turns = 0
+
+
+
+while True: 
+    letter_guess = input("What is your letter guess for the secret word? Input here: ")
+
+    if letter_guess == random_category_word:
+        # count how many times the word appeared 
+        right_letter_count = random_category_word.count(letter_guess)
+        print(f"Okay smartie! That letter appeared {right_letter_count} times in the secret word!")
+        user_correct_bank = correct_bank.append(right_letter_count)
+        print(f"Correct letter word bank:{[user_correct_bank]}")
+        guess_preference = input("Great job! Do you want to try to guess the word? (y/n): ")
+        if guess_preference.casefold() == "y":
+            user_word_guess = input("""Okay! Since you think you're so smart, what is the word? 
+                      Input your answer here:  """)
+
+    else: 
+        print("WRONG WRONG WRONG! Try again!! ")
+        incorrect_letter_count = random_category_word.count(letter_guess)
+        user_incorrect_bank = incorrect_letter_bank.append(incorrect_letter_count)
+

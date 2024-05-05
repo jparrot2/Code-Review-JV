@@ -52,7 +52,7 @@ word_guess_turns = 0
 
 
 
-while True: 
+while word_guess_turns <= 3: 
     letter_guess = input("What is your letter guess for the secret word? Input here: ")
 
     if letter_guess in random_category_word:
@@ -61,9 +61,15 @@ while True:
         print(f"Okay smartie! That letter appeared {right_letter_count} times in the secret word!")
         correct_bank.append(letter_guess)
         print(f"correct word bank: {correct_bank}")
+
         guess_preference = input("Great job! Do you want to try to guess the word? (y/n): ")
-        if guess_preference.lower() not in ["y", "n"]:
-            raise ValueError("Invalid input. Please enter 'y' or 'n'.")
+        try:
+            if guess_preference.lower() not in ["y", "n"]:
+                print("Invalid input. Please enter 'y' or 'n'.")
+        except ValueError:
+            print("try again!!")
+            guess_preference = input("Great job! Do you want to try to guess the word? (y/n): ")
+        
         if guess_preference.casefold() == "y":
             user_word_guess = input("""Okay! Since you think you're so smart, what is the word? 
                       Input your answer here:  """)
@@ -77,3 +83,6 @@ while True:
         print("WRONG WRONG WRONG! Try again!! ")
         incorrect_letter_bank.append(letter_guess)
         print(f"Incorrect word bank: {incorrect_letter_bank}")
+        word_guess_turns += 1
+
+

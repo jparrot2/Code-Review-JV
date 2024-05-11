@@ -15,6 +15,14 @@ the secret word.
 word. 
 - There are only 3 word guesses per turn. 
 
+
+
+
+
+
+
+
+
 MIT License
 
 Copyright (c) 2024 Jayla Parrott

@@ -8,9 +8,9 @@ import pandas as pd
 print("Welcome to the FOOD WORD GUESSING GAME! (you'll probably end up hungry lol) ")
 
 # making the food dictionary with categories as keys and specific foods as values 
-food_bank = {"Junk" : ("chips", "cookies", "cake", "fries", "soda"), 
-                "Fruits" : ("apples", "blueberries", "pineapples","oranges", "raspberries"),
-                    "Dairy" : ("cheese", "yogurt", "buttermilk", "butter", "cream")}
+food_bank = {"Junk" : ("chips", "cookies", "cake", "fries", "soda", "chocolate", "pizza"), 
+                "Fruits" : ("apples", "blueberries", "pineapples","oranges", "raspberries", "kiwi", "strawberries"),
+                    "Dairy" : ("cheese", "yogurt", "buttermilk", "butter", "cream", "lactose", "whey")}
 
 # want to choose a randomized word from a category. First we need to randomize the keys
 categories = list(food_bank.keys())
@@ -116,7 +116,9 @@ print(f"Here is the number of times you guessed: {scoring}")
 user_data = {"Username" : username, 
              "Attempts to get the word" : scoring}
 user_dataframe = pd.DataFrame([user_data], index=[0])
-print(f"Here is the scoreboard for your attempt to guess the word: \n {user_dataframe}")
+
+
+print(f"Here is the scoreboard for your attempt to guess the word: {user_dataframe}")
 print("Hope you had fun!")
 exit("Exiting the program... Bye Bye!")
 

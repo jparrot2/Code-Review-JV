@@ -93,6 +93,8 @@ while word_guess_turns < 3:
         if guess_preference.casefold() == "y":
             user_word_guess = input("""Okay! Since you think you're so smart, what is the word? 
                       Input your answer here:  """)
+            if " " in user_word_guess:
+                print("NO NO NO!! The words have no spaces. Try again, silly!")
             if user_word_guess.casefold() == random_category_word:
                 print("OKAY BIG BRAINNN! YOU GOT IT!")
                 break
@@ -116,10 +118,12 @@ print(f"Here is the number of times you guessed: {scoring}")
 user_data = {"Username" : username, 
              "Attempts to get the word" : scoring}
 user_dataframe = pd.DataFrame([user_data], index=[0])
+# test case to make sure the dataframe works 
+# print(user_dataframe)
 
 
 print(f"Here is the scoreboard for your attempt to guess the word: {user_dataframe}")
-print("Hope you had fun!")
+print(f"Hope you had fun! The secret word was {random_category_word} from the {random_choosing} category!")
 exit("Exiting the program... Bye Bye!")
 
 

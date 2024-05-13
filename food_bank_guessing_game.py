@@ -3,6 +3,8 @@
 # importing random library
 import random
 import pandas as pd
+import mask_function
+
 
 # printing a welcome message to the user 
 print("Welcome to the FOOD WORD GUESSING GAME! (you'll probably end up hungry lol) ")
@@ -24,9 +26,10 @@ username = input(f"Please enter your username here:  ")
 
 # telling the user what the categories are 
 print(f"""Okay, {username}, Here are the categories, each filled with foods to guess: 
-      - Junk
-      - Fruits
-      - Dairy""")
+- Junk
+- Fruits
+- Dairy""")
+
 
 # randomizing the picking of the categories
 random_choosing = random.choice(categories)
@@ -41,7 +44,7 @@ random_category_word = random.choice(values)
 
 # want to mask the randomly slected word, possibly with a function?
 
-def mask_function(random_category_word, masking_character = "_"):
+def mask_function(random_category_word, masking_character = "*"):
     """
     This function will take the randomized word
     and mask it with the chosen character to 
@@ -60,8 +63,14 @@ def mask_function(random_category_word, masking_character = "_"):
 # mask_function("exam")
 # mask_function("exam", "$")
 
-masked_word = mask_function(random_category_word)
-print(f"AHHH! Your word is from the {random_choosing} category, and here is your word: {masked_word}") 
+# Give the user an example of the mask being used? 
+import mask_function
+
+print("Here is an example of how your randomly selected word will be masked, the secret word is 'Hello'.")
+masked_word = mask_function.mask_function('Hello', '%')
+print("Masked Word:", masked_word)
+
+print(f"OKAY! Your word is from the {random_choosing} category, and here is your word: {masked_word}") 
 
 
 
@@ -121,29 +130,15 @@ user_dataframe = pd.DataFrame([user_data], index=[0])
 # test case to make sure the dataframe works 
 # print(user_dataframe)
 
+# maybe print out results of the guesses to a separate file
+# turn scoring which is an integer into a string 
+scoring_string = str(scoring)
+with open ("food_guessing_game_results.txt", "a") as output_connection:
+    output_connection.write(scoring_string)
+
+#test case 
+#print(scoring_string)
 
 print(f"Here is the scoreboard for your attempt to guess the word: {user_dataframe}")
 print(f"Hope you had fun! The secret word was {random_category_word} from the {random_choosing} category!")
 exit("Exiting the program... Bye Bye!")
-
-
-# making a dictionary for username and their score 
-
-
-
-
-# add some improvements: 
-
-# reveal the secret word after the player fails 
-# control over how many times the letter is guessed
-# more error handling 
-
-
-# advanced topics 
-# make a dictionary for scoring with the players name as the key and the score (using pandas)
-# make a dictionary for player name and scores 
-
-# additional points
-# 
-
-

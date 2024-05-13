@@ -23,8 +23,9 @@ def food_bank_game():
     # print(categories)
 
     # getting the user's name 
-    username = input(f"Please enter your username here:  ")
-
+    username = []
+    name = input(f"Please enter your username here:  ")
+    username.append(name)
 
     # telling the user what the categories are 
     print(f"""Okay, {username}, Here are the categories, each filled with foods to guess: 
@@ -127,9 +128,14 @@ def food_bank_game():
 
     # making an updated dictionary to store the user's name and their final score
     # username and attempts to get the word are the columns 
-    user_data = {"Username" : username, 
-                "Attempts to get the word" : scoring}
-    user_dataframe = pd.DataFrame([user_data], index=[0])
+
+    # Viet - commented out these 3 lines below
+
+    # user_data = {"Username" : username, 
+    #             "Attempts to get the word" : scoring}
+    # user_dataframe = pd.DataFrame([user_data], index=[0])
+
+
     # test case to make sure the dataframe works 
     # print(user_dataframe)
 
@@ -142,8 +148,17 @@ def food_bank_game():
     #test case 
     #print(scoring_string)
 
-    print(f"Here is the scoreboard for your attempt to guess the word: {user_dataframe}")
-    print(f"Hope you had fun! The secret word was {random_category_word} from the {random_choosing} category!")
+    # print(f"Here is the scoreboard for your attempt to guess the word: {user_dataframe} \n")
+    # print(f"Hope you had fun! The secret word was {random_category_word} from the {random_choosing} category!")
+
+    print("Here is the scoreboard for your attempt to guess the word:")
+    print("Username")
+    print(username)  # Print the username directly
+    print("\nAttempts to get the word")
+    print(scoring)  # Print the scoring directly
     exit("Exiting the program... Bye Bye!")
 
 food_bank_game()
+
+
+

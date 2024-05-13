@@ -72,7 +72,6 @@ def food_bank_game():
     print("Here is an example of how your randomly selected word will be masked, the secret word is 'Hello'.")
     masked_word = mask_function.mask_function('Hello', '%')
     print("Masked Word:", masked_word)
-
     print(f"OKAY! Your word is from the {random_choosing} category, and here is your word: {masked_word}") 
 
 

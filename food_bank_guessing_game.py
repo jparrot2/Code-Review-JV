@@ -66,10 +66,11 @@ def mask_function(random_category_word, masking_character = "*"):
 # Give the user an example of the mask being used? 
 import mask_function
 
-print("Here is an example of how your randomly selected word will be masked, the secret word is 'Hello'.")
-masked_word = mask_function.mask_function('Hello', '%')
-print("Masked Word:", masked_word)
+print("Here is an example of how your randomly selected word will be masked, the secret word is 'Hello'.\n")
+example_masked_word = mask_function.mask_function('Hello', '%\n')
+print("Masked Word:", example_masked_word)
 
+masked_word = mask_function(random_category_word)
 print(f"OKAY! Your word is from the {random_choosing} category, and here is your word: {masked_word}") 
 
 
